@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>White Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <style></style>
+  </head>
+  <body>
+    <!-- <h1>Admin Page</h1> -->
+    <a class=" home btn btn-success" href="index.html">Home Page</a>
+    <button class="btn btn-danger" id="logoutBtn">Logout</button>
+    <div action="" class="form">
+      <div class="container">
+        <input
+          type="file"
+          class="form-control"
+          placeholder="Image_URL"
+          id="image"
+        />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Product Name"
+          id="name"
+        />
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Price"
+          id="price"
+        />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Product Category"
+          id="category"
+        />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Product Description"
+          id="description"
+        />
+
+        <input type="submit" value="Add" id="addBtn" class="btn btn-info" />
+        <div id="productsContainer"></div>
+      </div>
+    </div>
+
+    <!-- <script src="js/firebase.js" type="module"></script> -->
+    <script src="js/supabaseClient.js" type="module"></script>
+    <script src="js/admin.js" type="module"></script>
+    <!-- <script src="js/main.js" type="module"></script> -->
+  </body>
+</html>

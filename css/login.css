@@ -1,0 +1,270 @@
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  /* --main-color: #2196f3; */
+  --main-color: #23ae8e;
+  /* --secondary-color: #1787e0; */
+  --secondary-color: #0e8267;
+  --text-color: #20324c;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../assets/login1.jfif") no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+@media (max-width: 991px) {
+  body {
+    background: url("../assets/login-picture.jfif") no-repeat;
+    background-size: cover;
+  }
+}
+a {
+  color: black;
+  font-size: 30px;
+  /* background-color: white; */
+  background-color: #23ae8e8f;
+  border: 3px solid var(--main-color);
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  padding: 20px;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+}
+a:hover {
+  background-color: var(--main-color);
+}
+.login-form {
+  padding: 20px;
+  width: 500px;
+  min-width: fit-content;
+  max-width: 100%;
+  /* background-color: white; */
+  /* background-color: var(--main-color); */
+  background-color: #23ae8e8f;
+  border: 3px solid var(--main-color);
+  text-align: center;
+  margin: 30px;
+  border-radius: 10px;
+  box-shadow:
+    10px 10px 50px rgb(100 100 100),
+    -10px -10px 50px white;
+}
+.login-form label {
+  text-align: start;
+  display: block;
+  color: var(--text-color);
+  font-size: 18px;
+}
+.login-form input:not([type="checkbox"]) {
+  margin-bottom: 30px;
+}
+
+/* تنسيق العنصر الأب اللي شايل التشيكبوكس والنص */
+.showpassword {
+  display: flex; /* عشان النص والتشيكبوكس يكونوا على خط واحد */
+  align-items: center; /* توسيط عمودي */
+  cursor: pointer; /* تغيير شكل الماوس */
+  font-size: 20px; /* تكبير النص اللي جمبها */
+}
+
+/* تنسيق التشيكبوكس الفعلي (الأزرق) */
+.showpassword input[type="checkbox"] {
+  /* دي أهم خطوة: بتوقف الشكل الافتراضي للمتصفح */
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 20px; /* عرض التشيكبوكس */
+  height: 20px; 
+
+  /* تنسيق المظهر الأزرق */
+  border: 2px solid #007bff; /* لون الإطار الأزرق */
+  border-radius: 4px; /* حواف ناعمة */
+  background-color: white; /* لون الخلفية لما يكون مش متحدد */
+  transition: all 0.2s ease; /* أنيميشن بسيط */
+  margin-right: 10px; /* مسافة بينه وبين النص */
+
+  /* عشان نعرف نحط علامة الصح جواها */
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* تنسيق المظهر لما يكون التشيكبوكس متحدد (Checked) */
+.showpassword input[type="checkbox"]:checked {
+  /* background-color: #007bff; */
+  background-color: var(--secondary-color);
+  border-color: var(--main-color);
+  margin-top: 20px;
+}
+
+/* تصميم علامة الصح (✓) البيضاء باستخدام الـ pseudo-element */
+.showpassword input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  left: 50%;
+  top: 49%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0;
+}
+
+/* إظهار علامة الصح لما يكون متحدد (Checked) */
+.showpassword input[type="checkbox"]:checked::after {
+  opacity: 1;
+}
+
+.login-form input[type="submit"] {
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+  background-color: white;
+  transition: all 0.4s;
+  font-weight: bold;
+  font-size: 18px;
+}
+.login-form input[type="submit"]:hover {
+  /* background-color: var(--main-color); */
+  background-color: var(--secondary-color);
+  color: white;
+}
+.login-form label:first-of-type {
+  margin-top: 20px;
+}
+.showpassword {
+  margin-bottom: 30px;
+  margin-top: -40px;
+  text-align: start;
+}
+.showpassword label {
+  display: inline-block;
+}
+.login-form #googleBtn {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  transition: all 0.4s;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 2px 2px 30px var(--main-color);
+  margin-bottom: 30px;
+}
+.login-form #googleBtn:hover {
+  background-color: rgb(62, 62, 62);
+}
+
+
+
+
+
+/* Custom Popup Overlay */
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-alert-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Custom Popup Box */
+.custom-alert-box {
+  background: #ffffff;
+  width: 90%;
+  max-width: 380px;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  font-family: inherit;
+  border: 1px solid #72d0b3;
+}
+
+.custom-alert-overlay.active .custom-alert-box {
+  transform: scale(1);
+}
+
+.custom-alert-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.custom-alert-title {
+  margin: 0 0 8px 0;
+  color: #2b5752;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.custom-alert-message {
+  margin: 0 0 20px 0;
+  color: #555555;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.custom-alert-btn {
+  background: linear-gradient(135deg, #72d0b3, #4ab395);
+  color: #ffffff;
+  border: none;
+  padding: 10px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(114, 208, 179, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.custom-alert-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #5ec4a5, #3ea286);
+}
+
+
+.custom-btn-danger {
+  background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3) !important;
+}
+
+.custom-btn-secondary {
+  background: #6c757d !important;
+  box-shadow: 0 4px 10px rgba(108, 117, 125, 0.3) !important;
+}
